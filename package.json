@@ -1,0 +1,13 @@
+{
+  "name": "tom-telegram-pair",
+  "version": "1.0.0",
+  "main": "telegram.js",
+  "scripts": {
+    "start": "node telegram.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.17",
+    "dotenv": "^16.4.5",
+    "telegraf": "^4.16.3"
+  }
+}
