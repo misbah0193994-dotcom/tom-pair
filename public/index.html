@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>WP Pair Site</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{background:#0a0a0a;color:#fff;display:flex;justify-content:center;align-items:center;min-height:100vh}
+.box{background:#1a1a1a;padding:40px;border-radius:15px;box-shadow:0 0 20px #25D366;width:90%;max-width:400px;text-align:center}
+h2{margin-bottom:20px;color:#25D366}
+input{width:100%;padding:15px;border-radius:10px;border:1px solid #333;background:#0a0a0a;color:#fff;margin:15px 0;font-size:16px}
+button{width:100%;padding:15px;background:#25D366;color:#000;border:none;border-radius:10px;font-size:16px;font-weight:bold;cursor:pointer}
+button:disabled{opacity:0.5;cursor:not-allowed}
+#result{margin-top:20px;font-size:18px}
+.code{font-size:28px;color:#25D366;font-weight:bold;letter-spacing:3px;margin:15px 0}
+</style>
+</head>
+<body>
+<div class="box">
+<h2>WhatsApp Pair Code</h2>
+<input type="text" id="num" placeholder="+88017XXXXXXXX">
+<button onclick="getPair()" id="btn">Generate Code</button>
+<div id="result"></div>
+</div>
+<script>
+async function getPair(){
+  const num = document.getElementById('num').value;
+  const btn = document.getElementById('btn');
+  const res = document.getElementById('result');
+  
+  if(!num){alert('Number দাও');return}
+  btn.disabled = true;
+  res.innerHTML = 'Loading...';
+  
+  const r = await fetch('/pair',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({number:num})});
+  const d = await r.json();
+  
+  if(d.code){
+    res.innerHTML = `<div>Pair Code:</div><div class="code">${d.code}</div><div style="font-size:14px;color:#aaa">WhatsApp > Linked Devices > Link with phone number</div><div style="margin-top:15px;font-size:14px;color:#25D366">কানেক্ট হওয়ার পর WP তে Session ID চলে আসবে</div>`;
+  } else {
+    res.innerHTML = `<div style="color:red">${d.error}</div>`;
+    btn.disabled = false;
+  }
+}
+</script>
+</body>
+</html>
