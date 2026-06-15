@@ -1,0 +1,12 @@
+{
+  "name": "pair-site",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^7.0.0-rc9",
+    "express": "^4.19.2"
+  }
+}
