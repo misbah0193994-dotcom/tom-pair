@@ -1,3 +1,4 @@
+node_modules
+sessions
 .env
-session/
-node_modules/
+.DS_Store
