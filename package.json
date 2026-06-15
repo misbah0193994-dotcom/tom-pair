@@ -1,13 +1,21 @@
 {
-  "name": "tom-telegram-pair",
+  "name": "telegram-whatsapp-pair-bot",
   "version": "1.0.0",
-  "main": "telegram.js",
+  "description": "Get WhatsApp pairing code via Telegram bot",
+  "main": "telegram-pair-bot.js",
   "scripts": {
-    "start": "node telegram.js"
+    "start": "node telegram-pair-bot.js"
   },
+  "keywords": ["telegram", "whatsapp", "baileys", "pair"],
+  "author": "You",
+  "license": "MIT",
   "dependencies": {
-    "@whiskeysockets/baileys": "^6.7.17",
-    "dotenv": "^16.4.5",
-    "telegraf": "^4.16.3"
+    "express": "^4.18.2",
+    "telegraf": "^4.15.0",
+    "@whiskeysockets/baileys": "^6.6.0",
+    "pino": "^8.17.2"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
